@@ -23,7 +23,9 @@ function clickOnTableElement(ele){
     if (this.textContent != "X" || this.textContent != "O") {
       this.textContent = "X";
     }
-    console.log(this);
+    console.log(this.textContent)
+    this.removeEventListener('click',clickOnTableElement);
+    if(isEmptyField())computerMove();
 }
 function assignEventToRestartButton(){
     document.querySelector(".buttonRestart").addEventListener('click',cleaningTable);
@@ -33,4 +35,24 @@ function cleaningTable(){
              document.getElementById(i.toString()).textContent = "";
              console.log("lol");
            }
+           assignEventToTableElements();
+}
+function computerMove(){
+    let number = drawPosition();
+    console.log(number);
+    while ( number == 0 || table.get(number).textContent == "O" ||table.get(number).textContent == "X") {
+      number = drawPosition();
+      console.log(number);
+    }
+    table.get(number).textContent="O";
+    table.get(number).removeEventListener("click", clickOnTableElement);
+}
+function isEmptyField(){
+    for(const ele of table.values()){
+        if (ele.textContent == "") return true;
+    }
+   return false;
+}
+function drawPosition(){
+    return Math.round(Math.random()*9);
 }
