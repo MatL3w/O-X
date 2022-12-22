@@ -1,13 +1,7 @@
 'use strict';
 //variables>>>
-const user= {
-    fields : [],
-    
-};
+const table= new Map();
 
-const computer = {
-    fields: [],
-};
 //variables<<<
 
 //core>>>
@@ -20,8 +14,9 @@ assignEventToRestartButton();
 //functions>>
 function assignEventToTableElements(){
     for (let i = 1; i < 10; i++) {
-     console.log(document.getElementById(i.toString()));
-    document.getElementById(i.toString()).addEventListener('click',clickOnTableElement);
+        table.set(i, document.getElementById(i.toString()));
+        console.log(document.getElementById(i.toString()));
+        table.get(i).addEventListener('click',clickOnTableElement);
     }
 }
 function clickOnTableElement(ele){
