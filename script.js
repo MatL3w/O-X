@@ -11,6 +11,7 @@ const computer = {
 //variables<<<
 
 //core>>>
+cleaningTable();
 assignEventToTableElements();
 assignEventToRestartButton();
 //core<<<
@@ -24,14 +25,17 @@ function assignEventToTableElements(){
     }
 }
 function clickOnTableElement(ele){
-    this.textContent = "X";
+    if (this.textContent != "X" || this.textContent != "O") {
+      this.textContent = "X";
+    }
     console.log(this);
 }
 function assignEventToRestartButton(){
-    document.querySelector(".buttonRestart").addEventListener('click',()=>{
-       for (let i = 1; i < 10; i++) {
-        document.getElementById(i.toString()).textContent="";
-         console.log('lol');
-       }
-    });
+    document.querySelector(".buttonRestart").addEventListener('click',cleaningTable);
+}
+function cleaningTable(){
+           for (let i = 1; i < 10; i++) {
+             document.getElementById(i.toString()).textContent = "";
+             console.log("lol");
+           }
 }
