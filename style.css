@@ -71,7 +71,7 @@ div{
 }
 
 .hidden {
-  display: none;
+  display: block;
 }
 
 .modal {
