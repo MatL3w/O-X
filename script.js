@@ -56,9 +56,11 @@ function computerMove(){
 }
 function isEmptyField(){
     for(const ele of table.values()){
-        if (ele.textContent != computerMark && ele.textContent != userMark) return true;
+        if (ele.textContent != computerMark && ele.textContent != userMark)return true;
     }
-   return false;
+    for (const ele of modals) ele.style.display = "block";
+    document.getElementById(10).textContent = `Draw`;
+    return false;
 }
 function drawPosition(){
     return Math.round(Math.random()*9);
