@@ -30,12 +30,9 @@ function clickOnTableElement(ele){
     this.removeEventListener('click',clickOnTableElement);
    ;
     if (!checkForWinner(userMark) && isEmptyField()) {
-      computerMove();
-      checkForWinner(computerMark);
-    } else {
-
-    }
-}
+        computerMove();
+        checkForWinner(computerMark);
+    } 
 function assignEventToRestartButton(){
     document.querySelector(".buttonRestart").addEventListener('click',cleaningTable);
 }
@@ -78,12 +75,14 @@ function checkForWinner(mark){
         (wynik.includes("3") && wynik.includes("6")&&wynik.includes('9')) ||
         (wynik.includes("1") && wynik.includes("5")&&wynik.includes('9')) ||
         (wynik.includes("3") && wynik.includes("5")&&wynik.includes('7')) ) {
-
+ 
       console.log(`wygrywa ${mark}`);
       console.log(wynik);
       for (const ele of modals) {
         ele.style.display = "block";
+        document.getElementById(10).textContent = `Winner is ${mark}`;
       }
+      return true;
     }
     return false;
 }
