@@ -33,6 +33,7 @@ function clickOnTableElement(ele){
         computerMove();
         checkForWinner(computerMark);
     } 
+}
 function assignEventToRestartButton(){
     document.querySelector(".buttonRestart").addEventListener('click',cleaningTable);
 }
